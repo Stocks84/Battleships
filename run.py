@@ -5,7 +5,6 @@ board = []
 for x in range(0, 8):
     board.append(['O'] * 8)
 
-# print(board)
 
 def print_board(board):
     """
@@ -14,6 +13,9 @@ def print_board(board):
     """
     for row in board:
         print(' '.join(row))
+
+# print_board(board)
+
 
 def random_row(board):
     """
@@ -29,13 +31,22 @@ def random_col(board):
     """
     return randint(0, len(board) -1)
 
+
+
 bship_row = random_row(board)
 bship_col = random_col(board)
-
+print(bship_row)
+print(bship_col)
 guess_row = int(input("Guess Row: "))
 guess_col = int(input("Guess Col: "))
 
-print(bship_row)
-print(bship_col)
+# print(bship_row)
+# print(bship_col)
 
-# print_board(board)
+
+def correct_guess():
+    if guess_row == bship_row and guess_col == bship_col:
+        print("BOOM!!! That was a Great hit!")
+
+
+correct_guess()
