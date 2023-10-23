@@ -1,5 +1,19 @@
 from random import randint
 
+print("Welcome")
+
+def lets_start():
+
+    play = input("Would you like to start comander?")
+
+    if play == "Y":
+       print("Excellent commander. Good Luck!") 
+    else:
+        play == "N"
+        print("Sorry to hear that commander. Maybe next time.")
+
+lets_start()
+
 board = []
 
 for x in range(0, 8):
@@ -44,28 +58,30 @@ guess_col = int(input("Guess Col: "))
 # print(bship_row)
 # print(bship_col)
 
-
 def correct_guess():
     """
     When player gets a correct guess a message will appear.
     """
     if guess_row == bship_row and guess_col == bship_col:
         print("BOOM!!! That was a Great hit!\n")
-    # else:
-    #     print("Ah you missed!!! You need to improve your aim!!!\n")
-    #     board[guess_row][guess_col] = 'X'
-    #     print_board(board)
 
+    else:
+        print("Ah you missed!!! You need to improve your aim!!!\n")
+        board[guess_row][guess_col] = 'X'
+        print_board(board)
 
 correct_guess()
 
 # Might need to be before correct guess function
-def land_guess():
-    """
-    When player guesses out of range of the board a message will appear.
-    """
-    if guess_row not in range(8) or guess_col not in range(8):
-        print("Oh no, you have hit DRY LAND!!! Please try again!!")
-        print("Anywhere between 1 & 8 \n")
+# def land_guess():
+#     """
+#     When player guesses out of range of the board a message will appear.
+#     """
+#     if guess_row != range(0,8) and guess_col != range(0,8):
+#             print("Oh no, you have hit DRY LAND!!! Please try again!!")
+#             print("Anywhere between 1 & 8 \n")
 
-land_guess()
+# land_guess()
+
+# if board[guess_row][guess_col] == 'X':
+#         print("You have hit me twice!")
