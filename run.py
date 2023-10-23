@@ -14,7 +14,7 @@ def print_board(board):
     for row in board:
         print(' '.join(row))
 
-# print_board(board)
+print_board(board)
 
 
 def random_row(board):
@@ -45,8 +45,15 @@ guess_col = int(input("Guess Col: "))
 
 
 def correct_guess():
+    """
+    When player gets a correct guess a message will appear.
+    """
     if guess_row == bship_row and guess_col == bship_col:
-        print("BOOM!!! That was a Great hit!")
+        print("BOOM!!! That was a Great hit!\n")
+    else:
+        print("Ah you missed!!! You need to improve your aim!!!\n")
+        board[guess_row][guess_col] = 'X'
+        print_board(board)
 
 
 correct_guess()
