@@ -5,23 +5,17 @@ print("Welcome")
 def lets_start():
     """
     Gives the player a start the mission question.
-    """
-    play = input("Would you like to start comander?")
-
-    if play == "Y":
-       print("Excellent commander. Good Luck!") 
-    else: play == "N"
-    print("Sorry to hear that commander. Maybe next time.")
-
-lets_start()
-
-def validate_start(play):
-    try:
-        if str(play) != "Y" or "N":
-            raise ValueError(f"Exactly Y or N required")
-    except ValueError as e:
-        print(f"Invalid data: {e}, please try again")
-
+    """  
+    while True:
+        play = input("Would you like to start comander 'Y' or 'N'?").upper()
+        if play == 'Y':
+            print("Excellent Commander. Good Luck!")
+            break
+        elif play == 'N':
+            print("Sorry to hear that commander. Maybe next time.")
+        else:
+            print("Invalid input. Please try again with only 'Y' & 'N'!!!")
+        
 lets_start()
 
 board = []
