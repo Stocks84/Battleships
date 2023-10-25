@@ -4,6 +4,8 @@ from random import randint
 
 global guess_row
 global guess_col
+# global random_row
+# global random_col
 
 
 def clear():
@@ -15,6 +17,7 @@ def clear():
 
 clear()
 print("Welcome")
+
 
 def lets_start():
     """
@@ -39,6 +42,7 @@ board = []
 for x in range(0, 8):
     board.append(['o'] * 8)
 
+
 def print_board(board):
     """
     This is for the aesthetics of the game.
@@ -55,15 +59,29 @@ def random_row(board):
     This gives a random number on the row which will essentially
     be our 'Hidden ship'. Regardless of the size of the board.
     """
-    return randint(0, len(board) -1)
+    return randint(0, len(board) - 1)
+
 
 def random_col(board):
     """
     This gives a random number on the column which will essentially
     be our 'Hidden ship'. Regardless of the size of the board.
     """
-    return randint(0, len(board) -1)
+    return randint(0, len(board) - 1)
 
+
+
+# def bship_row(board):
+#     """
+#     This hleps with the user indexes so user can input 1 -8.
+#     """
+#     return int(0, len(board) -1)
+
+# def bship_col(board):
+#     """
+#     This hleps with the user indexes so user can input 1 -8.
+#     """
+#     return int(0, len(board) -1)
 
 def validate_num(num):
     """
@@ -98,8 +116,22 @@ def user_guess():
             break
 
 
+# def computer_guess(user_guess):
+#     """
+#     The computer guess between 1 - 8.
+#     This function changes the indexes.
+#     """
+#     global random_row
+#     global random_col
+
+#     random_row = int(random_row) - 1
+#     random_col = int(random_col) - 1 
+
+# computer_guess()
+
+
 bship_row = random_row(board)
-bship_col = random_col(board)
+bship_col = random_col(board) 
 # Delete these prints after testing and undo comment down below
 print(bship_row)
 print(bship_col)
@@ -122,6 +154,8 @@ def correct_guess():
 
     if guess_row == bship_row and guess_col == bship_col:
         print("BOOM!!! That was a Great hit!\n")
+        board[bship_row][bship_col] = '@'
+        print_board(board)
         
     else:
         print("Ah you missed!!! You need to improve your aim!!!\n")
