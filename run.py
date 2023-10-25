@@ -1,5 +1,19 @@
+import os
 from random import randint
 
+
+global guess_row
+global guess_col
+
+
+def clear():
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+clear()
 print("Welcome")
 
 def lets_start():
@@ -8,6 +22,7 @@ def lets_start():
     """  
     while True:
         play = input("Would you like to start comander 'Y' or 'N'?").upper()
+        clear()
         if play == 'Y':
             print("Excellent Commander. Good Luck!")
             break
@@ -21,7 +36,7 @@ lets_start()
 
 board = []
 
-for x in range(0, 8,):
+for x in range(0, 8):
     board.append(['o'] * 8)
 
 def print_board(board):
@@ -34,17 +49,6 @@ def print_board(board):
 
 print_board(board)
 
-#   Still need to figure out how to change the indexes for user 
-#  def index_board(board):
-#     """
-#     Change the index start number so the user can use the traditional 1 - 8
-#     choices.
-#     """
-#     rows = [o, o , o, o, o, o, o, o]
-#     for index, row in enumerate(rows, start=1):
-#         return
-
-# index_board(board)
 
 def random_row(board):
     """
@@ -61,13 +65,47 @@ def random_col(board):
     return randint(0, len(board) -1)
 
 
+def validate_num(num):
+    """
+    If user does not use a number as a guess this error message will
+    appear
+    """
+    try:
+        guess = int(num)
+        return guess
+    except ValueError:
+        print(f"{num} Is not a valid number")
+
+
+def user_guess():
+    """
+    The player inputs their guess here between 1 - 8. 
+    This function changes the start of the indexes.
+    """
+    global guess_row
+    global guess_col
+
+    while True:
+        guess_row = input("Guess Row: ")
+        if validate_num(guess_row):
+            guess_row = int(guess_row) - 1
+            break
+
+    while True:
+        guess_col = input("Guess Col: ")
+        if validate_num(guess_col):
+            guess_col = int(guess_col) - 1
+            break
+
+
 bship_row = random_row(board)
 bship_col = random_col(board)
 # Delete these prints after testing and undo comment down below
 print(bship_row)
 print(bship_col)
-guess_row = int(input("Guess Row: "))
-guess_col = int(input("Guess Col: "))
+user_guess()
+
+
 print()
 
 # print(bship_row)
@@ -79,33 +117,19 @@ def correct_guess():
     """
     When player gets a correct guess a message will appear.
     """
+    global guess_row
+    global guess_col
+
     if guess_row == bship_row and guess_col == bship_col:
         print("BOOM!!! That was a Great hit!\n")
-        else if guess_row < 8 and guess_col < 8:
-            print("ddfddf")
-
-            else:
-            print("Ah you missed!!! You need to improve your aim!!!\n")
-            board[guess_row][guess_col] = 'X'
-            print_board(board)
+        
+    else:
+        print("Ah you missed!!! You need to improve your aim!!!\n")
+        board[guess_row][guess_col] = 'X'
+        print_board(board)
 
 correct_guess()
 
-# def lets_start():
-#     """
-#     Gives the player a start the mission question.
-#     """  
-#     while True:
-#         play = input("Would you like to start comander 'Y' or 'N'?").upper()
-#         if play == 'Y':
-#             print("Excellent Commander. Good Luck!")
-#             break
-#         elif play == 'N':
-#             print("Sorry to hear that commander. Maybe next time.")
-#         else:
-#             print("Invalid input. Please try again with only 'Y' & 'N'!!!")
-        
-# lets_start()
 
 # Might need to be before correct guess function
 # def land_guess():
