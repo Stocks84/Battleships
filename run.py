@@ -142,17 +142,15 @@ def correct_guess():
         board[bship_row][bship_col] = '@'
         print_board(board)
         
-    else if:
+    elif guess_row not in range(8) or guess_col not in range(8):
+        print("you are hitting land try again")
+
+    else: 
         guess_row != bship_row and guess_col != bship_col
         print("Ah you missed!!! You need to improve your aim!!!\n")
         board[guess_row][guess_col] = 'X'
         print_board(board)
 
-    else: 
-        guess_row < 10 and guess_col < 10
-        print("you are hitting land try again")
-        print_board(board)
-# Need to put somethng in place when the numbers are to big
 correct_guess()
 
 
