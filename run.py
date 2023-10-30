@@ -144,8 +144,12 @@ def correct_guess():
         
     elif guess_row not in range(8) or guess_col not in range(8):
         print("you are hitting land try again")
+# This line below not working correctly!!!!!!
+    elif board[guess_row][guess_row] == 'X' or '@':
+        print("You have hit me before!!!")
 
-    else: 
+    else:
+        # Not sure if i need the line below???? 
         guess_row != bship_row and guess_col != bship_col
         print("Ah you missed!!! You need to improve your aim!!!\n")
         board[guess_row][guess_col] = 'X'
