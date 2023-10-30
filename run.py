@@ -69,8 +69,6 @@ def random_col(board):
     """
     return randint(0, len(board) - 1)
 
-
-
 # def bship_row(board):
 #     """
 #     This hleps with the user indexes so user can input 1 -8.
@@ -115,26 +113,13 @@ def user_guess():
             guess_col = int(guess_col) - 1
             break
 
-
-# def computer_guess(user_guess):
-#     """
-#     The computer guess between 1 - 8.
-#     This function changes the indexes.
-#     """
-#     global random_row
-#     global random_col
-
-#     random_row = int(random_row) - 1
-#     random_col = int(random_col) - 1 
-
-# computer_guess()
-
-
 bship_row = random_row(board)
 bship_col = random_col(board) 
+
 # Delete these prints after testing and undo comment down below
 print(bship_row)
 print(bship_col)
+
 user_guess()
 
 
@@ -157,11 +142,17 @@ def correct_guess():
         board[bship_row][bship_col] = '@'
         print_board(board)
         
-    else:
+    else if:
+        guess_row != bship_row and guess_col != bship_col
         print("Ah you missed!!! You need to improve your aim!!!\n")
         board[guess_row][guess_col] = 'X'
         print_board(board)
 
+    else: 
+        guess_row < 10 and guess_col < 10
+        print("you are hitting land try again")
+        print_board(board)
+# Need to put somethng in place when the numbers are to big
 correct_guess()
 
 
