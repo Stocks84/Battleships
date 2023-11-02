@@ -92,70 +92,74 @@ def validate_num(num):
     except ValueError:
         print(f"{num} Is not a valid number")
 
+guesses = 0
 
-def user_guess():
-    """
-    The player inputs their guess here between 1 - 8. 
-    This function changes the start of the indexes.
-    """
-    global guess_row
-    global guess_col
-
-    while True:
-        guess_row = input("Guess Row: ")
-        if validate_num(guess_row):
-            guess_row = int(guess_row) - 1
-            break
-
-    while True:
-        guess_col = input("Guess Col: ")
-        if validate_num(guess_col):
-            guess_col = int(guess_col) - 1
-            break
-
-bship_row = random_row(board)
-bship_col = random_col(board) 
-
-# Delete these prints after testing and undo comment down below
-print(bship_row)
-print(bship_col)
-
-user_guess()
+while guesses < 4:
 
 
-print()
+    def user_guess():
+        """
+        The player inputs their guess here between 1 - 8. 
+        This function changes the start of the indexes.
+        """
+        global guess_row
+        global guess_col
 
-# print(bship_row)
-# print(bship_col)
+        while True:
+            guess_row = input("Guess Row: ")
+            if validate_num(guess_row):
+                guess_row = int(guess_row) - 1
+                break
+
+        while True:
+            guess_col = input("Guess Col: ")
+            if validate_num(guess_col):
+                guess_col = int(guess_col) - 1
+                break
+
+    bship_row = random_row(board)
+    bship_col = random_col(board) 
+
+    # Delete these prints after testing and undo comment down below
+    print(bship_row)
+    print(bship_col)
+
+    user_guess()
 
 
-# Need to fix this function when you shoot out of range.
-def correct_guess():
-    """
-    When player gets a correct guess a message will appear.
-    """
-    global guess_row
-    global guess_col
+    print()
 
-    if guess_row == bship_row and guess_col == bship_col:
-        print("BOOM!!! That was a Great hit!\n")
-        board[bship_row][bship_col] = '@'
-        print_board(board)
-        
-    elif guess_row not in range(8) or guess_col not in range(8):
-        print("you are hitting land try again")
-# This line below not working correctly!!!!!!
-    elif board[guess_row][guess_row] == 'X' or '@':
-        print("You have hit me before!!!")
+    # print(bship_row)
+    # print(bship_col)
 
-    else:
-        # Not sure if i need the line below???? 
-        guess_row != bship_row and guess_col != bship_col
-        print("Ah you missed!!! You need to improve your aim!!!\n")
-        board[guess_row][guess_col] = 'X'
-        print_board(board)
 
-correct_guess()
+    # Need to fix this function when you shoot out of range.
+    def correct_guess():
+        """
+        When player gets a correct guess a message will appear.
+        """
+        global guess_row
+        global guess_col
+
+        if guess_row == bship_row and guess_col == bship_col:
+            print("BOOM!!! That was a Great hit!\n")
+            board[bship_row][bship_col] = '@'
+            print_board(board)
+            
+            
+        elif guess_row not in range(8) or guess_col not in range(8):
+            print("you are hitting land try again\n")
+    # This line below not working correctly!!!!!!
+        # elif board[guess_row][guess_row] == 'X' or '@':
+        #     print("You have hit me before!!!")
+        else:
+            # Not sure if i need the line below???? 
+            guess_row != bship_row and guess_col != bship_col
+            print("Ah you missed!!! You need to improve your aim!!!\n")
+            board[guess_row][guess_col] = 'X'
+            print_board(board)
+
+    correct_guess()
 
 
 # Might need to be before correct guess function
