@@ -80,18 +80,21 @@ def validate_num(num):
         return guess
     except ValueError:
         print(f"{num} Is not a valid number")
-# Need to get this to work properly!!!! stuck in a contiued loop maybe in wrong place!
+
 
 def place_ship():
+    """
+    This function keeps the ship in just one area of the grid
+    """
     global bship_col
     global bship_row
 
     bship_col = random_num(board) 
     bship_row = random_num(board)
 # Add extra ships!!!!
-for i in range(2):
+# for i in range(2):
     
-    place_ship()
+place_ship()
 
 
 def user_guess():
@@ -105,19 +108,20 @@ def user_guess():
     while True:
         guess_row = input("Guess Row: ")
         if validate_num(guess_row):
-            guess_row = int(guess_row) - 1
+            guess_row = int(guess_row) 
             break
 
     while True:
         guess_col = input("Guess Col: ")
         if validate_num(guess_col):
-            guess_col = int(guess_col) - 1
+            guess_col = int(guess_col)
             break
 
 
 def correct_guess():
     """
-    When player gets a correct guess a message will appear.
+    When player guesses the player will get a correct message 
+    according to whether the player has hit, missed, or over shot.
     """
     global guess_row
     global guess_col
@@ -130,14 +134,13 @@ def correct_guess():
         print("BOOM!!! That was a Great hit!\n")
         game_active = False
     
-    elif guess_row not in range(8) or guess_col not in range(8):
-        print("you are hitting land try again\n")
-# This line below not working correctly!!!!!!
     elif board[guess_row][guess_row] == 'X':
         print("You have hit me before!!!")
+
+    elif guess_row not in range(8) and guess_col not in range(8):
+        print("you are hitting land try again\n")
+    
     else:
-        # Not sure if i need the line below???? Dont need it
-        # guess_row != bship_row and guess_col != bship_col
         guesses = guesses + 1
         print("Ah you missed!!! You need to improve your aim!!!\n")
         board[guess_row][guess_col] = 'X'
@@ -145,7 +148,10 @@ def correct_guess():
 
 
 def game():
-
+    """
+    This function allows the user to a have limited amount of guesses before 
+    the game ends.
+    """
     global bship_col
     global bship_row
     global game_active
@@ -160,9 +166,6 @@ def game():
 
             print()
 
-            # print(bship_row)
-            # print(bship_col)
-
             correct_guess()
         else:
             break
@@ -172,9 +175,27 @@ def game():
         print(f"Congratulations, You guessed it in {guesses + 1} guesses")
         
 
-game()
+game()    
 
-# else:
-#     guesses == 4  
-#     print("Game over")
+# global guess_row
+#     global guess_col
+#     global game_active
+#     global guesses
+
+#     if guess_row == bship_row and guess_col == bship_col:
+#         board[bship_row][bship_col] = '@'
+#         print_board(board)
+#         print("BOOM!!! That was a Great hit!\n")
+#         game_active = False
     
+#     elif board[guess_row][guess_row] == 'X':
+#         print("You have hit me before!!!")
+
+#     elif guess_row not in range(8) or guess_col not in range(8):
+#         print("you are hitting land try again\n")
+    
+#     else:
+#         guesses = guesses + 1
+#         print("Ah you missed!!! You need to improve your aim!!!\n")
+#         board[guess_row][guess_col] = 'X'
+#         print_board(board)
