@@ -3,7 +3,11 @@ from random import randint
 
 
 def main():
-
+# It add duplicates i need to reset the board for the new game! (Only sometimes)
+# Can not press 0 on the range thin i need to remove -1 or add -1 tried both ?????
+    """
+    Allows to loop the game and make replayable.
+    """
 
     global guess_row
     global guess_col
@@ -70,7 +74,6 @@ def main():
                 break
             else:
                 print("Invalid input. Please try again with only 'Y' & 'N'!!!")
-
 
 
     board = []
