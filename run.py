@@ -39,6 +39,7 @@ def lets_start():
         elif play == 'N':
             print("Sorry to hear that commander. Maybe next time.")
             game_active = False
+            break
         else:
             print("Invalid input. Please try again with only 'Y' & 'N'!!!")
         
@@ -134,12 +135,12 @@ def correct_guess():
         print("BOOM!!! That was a Great hit!\n")
         game_active = False
     
+    elif guess_row not in range(8) or guess_col not in range(8):
+        print("you are hitting land try again\n")
+
     elif board[guess_row][guess_row] == 'X':
         print("You have hit me before!!!")
 
-    elif guess_row not in range(8) and guess_col not in range(8):
-        print("you are hitting land try again\n")
-    
     else:
         guesses = guesses + 1
         print("Ah you missed!!! You need to improve your aim!!!\n")
