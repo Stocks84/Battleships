@@ -6,7 +6,7 @@ def main():
 # It add duplicates i need to reset the board for the new game! (Only sometimes)
 # Can not press 0 on the range thin i need to remove -1 or add -1 tried both ?????
     """
-    Allows to loop the game and make replayable.
+    Allows to loop the game and make it replayable.
     """
 
     global guess_row
@@ -53,27 +53,6 @@ def main():
                 
             
     lets_start()
-
-        
-    def lets_go_again():
-        """
-        At the end of the game allows the player to play again.
-        """
-        global game_active
-        global guesses
-
-        while True:
-            replay = input("Would you like to play again commander 'Y' or 'N'").upper()
-            clear()
-            if replay == 'Y':
-                game_active = True
-                guesses = 0
-            elif replay == 'N':
-                game_active = False
-                print("Enjoy your Retirement Commander")
-                break
-            else:
-                print("Invalid input. Please try again with only 'Y' & 'N'!!!")
 
 
     board = []
