@@ -3,10 +3,9 @@ from random import randint
 
 
 # Added main funtion to the end for starting the game. Need to reset game!
-# It adds duplicates i need to reset the board for the new game! (Only sometimes)
-# Can not press 0 on the range thin i need to remove -1 or add -1 tried both ?????
-# Lets start again function wont break properly! keeps adding the number of games to it!
-# After game reads a double then Game will read first number once and constant hit again
+# Can not press 0 on the range think i need to remove -1 or add -1 tried both ?????
+# Lets start  function wont break properly! error comes up when you break!
+# need function to clear the board
 """
 Allows to loop the game and make it replayable.
 """
@@ -147,7 +146,7 @@ def correct_guess():
     elif guess_row not in range(5) or guess_col not in range(5):
         print("you are hitting land try again\n")
 
-    elif board[guess_row][guess_row] == 'X':
+    elif board[guess_row][guess_col] == 'X':
         print("You have hit me before!!!")
 
     else:
@@ -201,8 +200,6 @@ def main():
         board.append(['o'] * 5)
 
     print_board(board)
-
-    random_num(board)
 
     place_ship()
 
