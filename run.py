@@ -2,11 +2,11 @@ import os
 from random import randint
 
 
-# def main(): 
 # Added main funtion to the end for starting the game. Need to reset game!
 # It adds duplicates i need to reset the board for the new game! (Only sometimes)
 # Can not press 0 on the range thin i need to remove -1 or add -1 tried both ?????
 # Lets start again function wont break properly! keeps adding the number of games to it!
+# After game reads a double then Game will read first number once and constant hit again
 """
 Allows to loop the game and make it replayable.
 """
@@ -59,8 +59,8 @@ lets_start()
 
 board = []
 
-for x in range(0, 8):
-    board.append(['o'] * 8)
+for x in range(0, 5):
+    board.append(['o'] * 5)
 
 
 def print_board(board):
@@ -103,15 +103,13 @@ def place_ship():
 
     bship_col = random_num(board) 
     bship_row = random_num(board)
-# Add extra ships!!!!
-# for i in range(2):
     
 place_ship()
 
 
 def user_guess():
     """
-    The player inputs their guess here between 0 - 7. 
+    The player inputs their guess here between 0 - 4. 
     This function changes the start of the indexes.
     """
     global guess_row
@@ -146,7 +144,7 @@ def correct_guess():
         print("BOOM!!! That was a Great hit!\n")
         game_active = False
     
-    elif guess_row not in range(8) or guess_col not in range(8):
+    elif guess_row not in range(5) or guess_col not in range(5):
         print("you are hitting land try again\n")
 
     elif board[guess_row][guess_row] == 'X':
@@ -191,14 +189,16 @@ game()
 
 
 def main():
-
+    """
+    Gives a replay function to the game.
+    """
 
     lets_start()
 
     board = []
 
-    for x in range(0, 8):
-        board.append(['o'] * 8)
+    for x in range(0, 5):
+        board.append(['o'] * 5)
 
     print_board(board)
 
@@ -238,40 +238,5 @@ def lets_go_again():
 
 lets_go_again()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# main()
-
-# global guess_row
-#     global guess_col
-#     global game_active
-#     global guesses
-
-#     if guess_row == bship_row and guess_col == bship_col:
-#         board[bship_row][bship_col] = '@'
-#         print_board(board)
-#         print("BOOM!!! That was a Great hit!\n")
-#         game_active = False
-    
-#     elif board[guess_row][guess_row] == 'X':
-#         print("You have hit me before!!!")
-
-#     elif guess_row not in range(8) or guess_col not in range(8):
-#         print("you are hitting land try again\n")
-    
-#     else:
-#         guesses = guesses + 1
-#         print("Ah you missed!!! You need to improve your aim!!!\n")
-#         board[guess_row][guess_col] = 'X'
-#         print_board(board)
+# Add extra ships!!!!
+# for i in range(2):
