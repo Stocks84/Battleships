@@ -2,10 +2,11 @@ import os
 from random import randint
 
 
-# Added main funtion to the end for starting the game. Need to reset game!
+# Added main funtion to the end for starting the game. Need to reset board game!
+# need function to clear the board
 # Can not press 0 on the range think i need to remove -1 or add -1 tried both ?????
 # Lets start  function wont break properly! error comes up when you break!
-# need function to clear the board
+
 """
 Allows to loop the game and make it replayable.
 """
@@ -24,9 +25,8 @@ def clear():
     """
     os.system("cls" if os.name == "nt" else "clear")
 
-
 clear()
-print("Welcome")
+print("Welcome\n")
 
 
 def lets_start():
@@ -37,25 +37,25 @@ def lets_start():
     global guesses
 
     while True:
-        play = input("Would you like to start comander 'Y' or 'N'?").upper()
+        play = input("Would you like to start comander 'Y' or 'N'?\n").upper()
         clear()
         if play == 'Y':
-            print("Excellent Commander. Good Luck!")
+            print("Excellent Commander. Good Luck!\n")
             game_active = True
             guesses = 0
             break
         elif play == 'N':
-            print("Sorry to hear that commander. Maybe next time.")
+            print("Sorry to hear that commander. Maybe next time.\n")
             game_active = False
             break
             # break brings out an error! But does break the loop!
+            # On repeat wont break
         else:
-            print("Invalid input. Please try again with only 'Y' & 'N'!!!")
-            
-        
+            print("Invalid input. Please try again with only 'Y' & 'N'!!!\n")
+                
 lets_start()
 
-
+# Do i need to make this into a function??? called new board?
 board = []
 
 for x in range(0, 5):
@@ -69,6 +69,8 @@ def print_board(board):
     """
     for row in board:
         print(' '.join(row))
+    
+    print()
 
 print_board(board)
 
@@ -114,10 +116,12 @@ def user_guess():
     global guess_row
     global guess_col
 
+    print()
+
     while True:
         guess_row = input("Guess Row: ")
         if validate_num(guess_row):
-            guess_row = int(guess_row) 
+            guess_row = int(guess_row)
             break
 
     while True:
@@ -147,7 +151,7 @@ def correct_guess():
         print("you are hitting land try again\n")
 
     elif board[guess_row][guess_col] == 'X':
-        print("You have hit me before!!!")
+        print("You have hit me before!!!\n")
 
     else:
         guesses = guesses + 1
@@ -179,10 +183,10 @@ def game():
         else:
             break
     if guesses <= 4 and game_active:
-        print("Game over, No more guesses")
+        print("Game over, No more guesses\n")
         
     if not game_active:
-        print(f"Congratulations, You guessed it in {guesses + 1} guesses")
+        print(f"Congratulations, You guessed it in {guesses + 1} guesses\n")
         
 game()
 
@@ -191,7 +195,6 @@ def main():
     """
     Gives a replay function to the game.
     """
-
     lets_start()
 
     board = []
@@ -220,7 +223,7 @@ def lets_go_again():
     global guesses
 
     while True:
-        replay = input("Would you like to play again commander 'Y' or 'N'").upper()
+        replay = input("Would you like to play again commander 'Y' or 'N'\n").upper()
         clear()
         if replay == 'Y':
             game_active = True
@@ -228,10 +231,10 @@ def lets_go_again():
             main()
         elif replay == 'N':
             game_active = False
-            print("Enjoy your Retirement Commander")
+            print("Enjoy your Retirement Commander\n")
             break
         else:
-            print("Invalid input. Please try again with only 'Y' & 'N'!!!")
+            print("Invalid input. Please try again with only 'Y' & 'N'!!!\n")
 
 lets_go_again()
 
