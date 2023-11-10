@@ -24,7 +24,11 @@ def clear():
 clear()
 
 print("Welcome To BATTLESHIPS!!!\n")
-
+print("         /|")
+print("        / |")
+print("       /__|")
+print("       __|__")
+print("      \_____/\n")
 
 def lets_start():
     """
@@ -50,7 +54,7 @@ def lets_start():
         else:
             print("Invalid input. Please try again with only 'Y' & 'N'!!!\n")
                 
-lets_start()
+# lets_start()
 
 # Do i need to make this into a function??? called new board?
 board = []
@@ -192,7 +196,7 @@ def main():
     """
     Gives a replay function to the game.
     """
-    # lets_start()
+    lets_start()
 
     board = []
 
