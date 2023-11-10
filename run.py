@@ -1,4 +1,5 @@
 import os
+import sys
 from random import randint
 
 
@@ -6,7 +7,6 @@ from random import randint
 # need function to clear the board
 # Can not press 0 on the range think i need to remove -1 or add -1 tried both ?????
 # Lets start  function wont break properly! error comes up when you break! play = N
-# Need to add rules!
 
 global guess_row
 global guess_col
@@ -14,6 +14,7 @@ global bship_col
 global bship_row
 global game_active
 global guesses
+global board
 
 
 def clear():
@@ -30,10 +31,16 @@ print("        / |")
 print("       /__|")
 print("       __|__")
 print("      \_____/\n")
+# Add a rules input here!!!
 
+# def rules():
+
+#     while True:
+#         rule = input("Would you like to see the Rules?")
+        
 print("Rules!\n")
 print("This is a simple game please follow these rules Commander:")
-print("- Follow the the instructions to get onto the mission board.")
+print("- Follow the instructions to get onto the mission board.")
 print("- There is only one Battleship on the board.")
 print("- You have four guesses to complete your mission.")
 print("- Choose a number between 0 and 4 for the row and column.")
@@ -58,19 +65,20 @@ def lets_start():
         elif play == 'N':
             print("Sorry to hear that Commander. Maybe next time.\n")
             game_active = False
-            break
-            # break brings out an error! But does break the loop!
+            sys.exit()
+            # brilliant alternative to break
             # On repeat wont break
         else:
             print("Invalid input. Please try again with only 'Y' & 'N'!!!\n")
                 
 # lets_start()
 
-# Do i need to make this into a function??? called new board?
-board = []
+def new_board():
+    global board
+    board = []
 
-for x in range(0, 5):
-    board.append(['o'] * 5)
+    for x in range(0, 5):
+        board.append(['o'] * 5)
 
 
 def print_board(board):
@@ -99,10 +107,9 @@ def validate_num(num):
     If player does not use a number as a guess this error message will
     appear.
     """
-    try:
-        guess = int(num)
-        return guess
-    except ValueError:
+    if num.isdigit():
+        return num
+    else:
         print(f"{num} This is not a valid number")
 
 
@@ -112,11 +119,12 @@ def place_ship():
     """
     global bship_col
     global bship_row
+    global board
 
     bship_col = random_num(board) 
     bship_row = random_num(board)
     
-place_ship()
+# place_ship()
 
 
 def user_guess():
@@ -151,7 +159,9 @@ def correct_guess():
     global guess_col
     global game_active
     global guesses
+    global board
 
+    clear()
     if guess_row == bship_row and guess_col == bship_col:
         board[bship_row][bship_col] = '@'
         print_board(board)
@@ -199,32 +209,6 @@ def game():
     if not game_active:
         print(f"Congratulations, You guessed it in {guesses + 1} guesses\n")
         
-# game()
-
-
-def main():
-    """
-    Gives a replay function to the game.
-    """
-    lets_start()
-
-    board = []
-
-    for x in range(0, 5):
-        board.append(['o'] * 5)
-
-    print_board(board)
-
-    place_ship()
-
-    # user_guess()
-
-    # correct_guess()
-
-    game ()
-
-main()
-
 
 def lets_go_again():
     """
@@ -244,11 +228,33 @@ def lets_go_again():
         elif replay == 'N':
             game_active = False
             print("Enjoy your Retirement Commander\n")
-            break
+            sys.exit()
         else:
             print("Invalid input. Please try again with only 'Y' & 'N'!!!\n")
 
-lets_go_again()
 
-# Add extra ships!!!!
-# for i in range(2):
+def main():
+    """
+    Gives a replay function to the game.
+    """
+    global board
+
+    new_board()
+
+    lets_start()
+
+    print_board(board)
+
+    place_ship()
+
+    # user_guess()
+
+    # correct_guess()
+
+    game()
+
+    lets_go_again()
+
+
+if __name__ == "__main__":
+    main()
