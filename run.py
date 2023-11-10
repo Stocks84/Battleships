@@ -5,11 +5,7 @@ from random import randint
 # Added main funtion to the end for starting the game. Need to reset board game!
 # need function to clear the board
 # Can not press 0 on the range think i need to remove -1 or add -1 tried both ?????
-# Lets start  function wont break properly! error comes up when you break!
-
-"""
-Allows to loop the game and make it replayable.
-"""
+# Lets start  function wont break properly! error comes up when you break! play = N
 
 global guess_row
 global guess_col
@@ -26,18 +22,19 @@ def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 clear()
-print("Welcome\n")
+
+print("Welcome To BATTLESHIPS!!!\n")
 
 
 def lets_start():
     """
-    Gives the player a start the mission question.
+    Gives the player the option to start the mission question or exit.
     """  
     global game_active
     global guesses
 
     while True:
-        play = input("Would you like to start comander 'Y' or 'N'?\n").upper()
+        play = input("Would you like to start the mission Commander 'Y' or 'N'?\n").upper()
         clear()
         if play == 'Y':
             print("Excellent Commander. Good Luck!\n")
@@ -45,7 +42,7 @@ def lets_start():
             guesses = 0
             break
         elif play == 'N':
-            print("Sorry to hear that commander. Maybe next time.\n")
+            print("Sorry to hear that Commander. Maybe next time.\n")
             game_active = False
             break
             # break brings out an error! But does break the loop!
@@ -65,39 +62,39 @@ for x in range(0, 5):
 def print_board(board):
     """
     This is for the aesthetics of the game.
-    Making nice rows for the user.
+    Making a neat grid for the player.
     """
     for row in board:
         print(' '.join(row))
     
     print()
 
-print_board(board)
+# print_board(board)
 
 
 def random_num(board):
     """
     This gives a random number on the row/col which will essentially
-    be our 'Hidden ship'. Regardless of the size of the board.
+    be the 'Hidden ship'. Regardless of the size of the board.
     """
     return randint(0, len(board) - 1)
 
 
 def validate_num(num):
     """
-    If user does not use a number as a guess this error message will
-    appear
+    If player does not use a number as a guess this error message will
+    appear.
     """
     try:
         guess = int(num)
         return guess
     except ValueError:
-        print(f"{num} Is not a valid number")
+        print(f"{num} This is not a valid number")
 
 
 def place_ship():
     """
-    This function keeps the ship in just one area of the grid
+    This function keeps the ship in just one area of the grid.
     """
     global bship_col
     global bship_row
@@ -133,7 +130,7 @@ def user_guess():
 
 def correct_guess():
     """
-    When player guesses the player will get a correct message 
+    When player makes a guess the player will get a correct message 
     according to whether the player has hit, missed, or over shot.
     """
     global guess_row
@@ -148,7 +145,7 @@ def correct_guess():
         game_active = False
     
     elif guess_row not in range(5) or guess_col not in range(5):
-        print("you are hitting land try again\n")
+        print("You are hitting Dry Land!! Try Again\n")
 
     elif board[guess_row][guess_col] == 'X':
         print("You have hit me before!!!\n")
@@ -162,7 +159,7 @@ def correct_guess():
 
 def game():
     """
-    This function allows the user to a have limited amount of guesses before 
+    This function allows the player to a have a limited amount of guesses before 
     the game ends.
     """
     global bship_col
@@ -183,19 +180,19 @@ def game():
         else:
             break
     if guesses <= 4 and game_active:
-        print("Game over, No more guesses\n")
+        print("Game over, No more guesses.\n")
         
     if not game_active:
         print(f"Congratulations, You guessed it in {guesses + 1} guesses\n")
         
-game()
+# game()
 
 
 def main():
     """
     Gives a replay function to the game.
     """
-    lets_start()
+    # lets_start()
 
     board = []
 
@@ -206,9 +203,9 @@ def main():
 
     place_ship()
 
-    user_guess()
+    # user_guess()
 
-    correct_guess()
+    # correct_guess()
 
     game ()
 
@@ -217,7 +214,8 @@ main()
 
 def lets_go_again():
     """
-    At the end of the game allows the player to play again.
+    At the end of the game gives the player a option to play again
+    or exit the game.
     """
     global game_active
     global guesses
