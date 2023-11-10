@@ -6,6 +6,7 @@ from random import randint
 # need function to clear the board
 # Can not press 0 on the range think i need to remove -1 or add -1 tried both ?????
 # Lets start  function wont break properly! error comes up when you break! play = N
+# Need to add rules!
 
 global guess_row
 global guess_col
@@ -29,6 +30,15 @@ print("        / |")
 print("       /__|")
 print("       __|__")
 print("      \_____/\n")
+
+print("Rules!\n")
+print("This is a simple game please follow these rules Commander:")
+print("- Follow the the instructions to get onto the mission board.")
+print("- There is only one Battleship on the board.")
+print("- You have four guesses to complete your mission.")
+print("- Choose a number between 0 and 4 for the row and column.")
+print("- No sleeping on duty.")
+print("Finally enjoy the game!\n")
 
 def lets_start():
     """
