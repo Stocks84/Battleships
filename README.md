@@ -128,3 +128,35 @@ I've used the following Python packages and/or external imported packages.
 - `os`: used for adding a `clear()` function
 - `random`: used to create a random choice 
 
+## Testing
+
+I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
+
+![screenshot](documentation/before.png)
+
+![screenshot](documentation/after.png)
+
+- Tested in my local terminal and the Code Istitute Heroku terminal.
+
+## Unfixed Bugs
+
+There are no remaining bugs that I am aware of.
+
+
+## Deployment
+
+Code Institute has provided a [template](https://github.com/Code-Institute-Org/python-essentials-template) to display the terminal view of this backend application in a modern web browser.
+This is to improve the accessibility of the project to others.
+
+The live deployed application can be found deployed on [Heroku](https://battleships84-ac97f9b3f0c3.herokuapp.com).
+
+### Heroku Deployment
+
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+### Acknowledgements
+
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for their support throughout the development of this project.
+- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with their understanding of my medical and personal issues.
+
+
