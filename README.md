@@ -85,3 +85,37 @@ Battleships allows the player up to six guesses per game on a grid size of 5 x 5
 - [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
 - [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
 
+
+## Data Model
+
+### Functions
+
+The primary functions used on this application are:
+
+- `clear()`
+    - To clean up the terminal so things do not get messy.
+- `rules()`
+    - This is to give the new/old player the option.
+- `lets_start()`
+    - Gives the player the option to start the mission question or exit.
+- `new_board()`
+    - Creates a new board.
+- `print_board()`
+    - This is for the aesthetics. Making a neat grid.
+- `random_num(board)`
+    -  Gives a random number on the row/col which will be the ‘Hidden Ship’ regardless of the board size.
+- `validate_num(num)`
+    - If player does not use a number as a guess an error message will appear.
+- `place_ship()`
+    - Keeps the ship in just one place.
+- `user_guess()`
+    - The player inputs their guess here.
+- `correct_guess()`
+    - When player makes a guess, the player will get a confirmation message. Hit, miss, or overshot.
+- `game()`
+    -  Allows the player to have a limited number of guesses before the game ends.
+- `lets_go_again()`
+    - End of game, gives the player the option to play again.
+- `main()`
+    - Gives replay function to the game.
+

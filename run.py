@@ -29,6 +29,9 @@ print("      \\_____/\n")
 
 
 def rules():
+    """
+    This is to give the new/old player the option.
+    """
 
     while True:
         rule = input("Would you like to see the Rules? 'Y'/'N'")
@@ -77,6 +80,9 @@ def lets_start():
 
 
 def new_board():
+    """
+    Creates a new board.
+    """
     global board
     board = []
 
