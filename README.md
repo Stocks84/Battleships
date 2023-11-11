@@ -119,3 +119,12 @@ The primary functions used on this application are:
 - `main()`
     - Gives replay function to the game.
 
+
+### Imports
+
+I've used the following Python packages and/or external imported packages.
+
+- `sys`: used to exit from a `lets_start()` and `let_go_again()` functions
+- `os`: used for adding a `clear()` function
+- `random`: used to create a random choice 
+
