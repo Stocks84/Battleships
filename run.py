@@ -25,7 +25,7 @@ print("        / |")
 print("       /__|")
 print("       __|__")
 print("      \_____/\n")
-# Add a rules input here!!!
+
 
 def rules():
 
@@ -69,12 +69,9 @@ def lets_start():
             print("Sorry to hear that Commander. Maybe next time.\n")
             game_active = False
             sys.exit()
-            # brilliant alternative to break
-            # On repeat wont break
         else:
             print("Invalid input. Please try again with only 'Y' & 'N'!!!\n")
                 
-# lets_start()
 
 def new_board():
     global board
@@ -93,8 +90,6 @@ def print_board(board):
         print(' '.join(row))
     
     print()
-
-# print_board(board)
 
 
 def random_num(board):
@@ -126,8 +121,6 @@ def place_ship():
 
     bship_col = random_num(board) 
     bship_row = random_num(board)
-    
-# place_ship()
 
 
 def user_guess():
@@ -194,10 +187,7 @@ def game():
     global game_active
     global guesses
 
-    while guesses < 4:
-        # Delete these prints after testing and undo comment down below
-        print(bship_row)
-        print(bship_col)
+    while guesses < 6:
         if game_active:
             user_guess()
 
@@ -206,7 +196,7 @@ def game():
             correct_guess()
         else:
             break
-    if guesses <= 4 and game_active:
+    if guesses <= 6 and game_active:
         print("Game over, No more guesses.\n")
         
     if not game_active:
@@ -249,10 +239,6 @@ def main():
     print_board(board)
 
     place_ship()
-
-    # user_guess()
-
-    # correct_guess()
 
     game()
 
