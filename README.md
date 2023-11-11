@@ -8,6 +8,7 @@ Battleships is a simple python terminal game which runs in the Code Institute mo
 
 Battleships allows the player up to six guesses per game on a grid size of 5 x 5. The player is hunting down one ship which is no bigger than 1 square. If the player guesses incorrectly a ‘X’ will be marked on the grid and the player has six attempts to hit the ship until the game is over and the player has lost. However, if the player gets a direct hit a ‘@’ will be marked and the player has won.
 
+
 ## Features
 
 ### Existing Features
@@ -60,4 +61,27 @@ Battleships allows the player up to six guesses per game on a grid size of 5 x 5
 -	If the player inputs ‘Y’ the game will repeat however if the player input ‘N’ when prompted, then the game ends.
 
 ![screenshot](documentation/end.png)
+
+
+### Future Features
+
+- Add grid size input.
+    - Allows the player to choose the size of the grid.
+- Add ships input.
+    - Allow the player to choose the number of ships on the grid. 
+- Add guesses input.
+    - Allow the player to choose the number guesses they can have.
+- Allow the computer to guess.
+    - The player places their own ships on the grid and then the player can compete against the computer.
+- Add scoring system.
+    - Allows the player to keep score of the wins and losses.
+
+
+## Tools & Technologies Used
+
+- [Python](https://www.python.org) used as the back-end programming language.
+- [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
+- [GitHub](https://github.com) used for secure online code storage.
+- [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
+- [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
 
