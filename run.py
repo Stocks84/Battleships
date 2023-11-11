@@ -17,6 +17,7 @@ def clear():
     """
     os.system("cls" if os.name == "nt" else "clear")
 
+
 clear()
 
 print("Welcome To BATTLESHIPS!!!\n")
@@ -24,7 +25,7 @@ print("         /|")
 print("        / |")
 print("       /__|")
 print("       __|__")
-print("      \_____/\n")
+print("      \\_____/\n")
 
 
 def rules():
@@ -47,18 +48,20 @@ def rules():
             print("Excellent Commander!")
             break
 
+
 rules()
 
-        
+
 def lets_start():
     """
     Gives the player the option to start the mission question or exit.
-    """  
+    """
     global game_active
     global guesses
 
     while True:
-        play = input("Would you like to start the mission Commander 'Y' or 'N'?\n").upper()
+        play = input(
+            "Would you like to start the mission Commander 'Y'/'N'?\n").upper()
         clear()
         if play == 'Y':
             print("Excellent Commander. Good Luck!\n")
@@ -71,7 +74,7 @@ def lets_start():
             sys.exit()
         else:
             print("Invalid input. Please try again with only 'Y' & 'N'!!!\n")
-                
+
 
 def new_board():
     global board
@@ -88,7 +91,7 @@ def print_board(board):
     """
     for row in board:
         print(' '.join(row))
-    
+
     print()
 
 
@@ -119,13 +122,13 @@ def place_ship():
     global bship_row
     global board
 
-    bship_col = random_num(board) 
+    bship_col = random_num(board)
     bship_row = random_num(board)
 
 
 def user_guess():
     """
-    The player inputs their guess here between 0 - 4. 
+    The player inputs their guess here between 0 - 4.
     This function changes the start of the indexes.
     """
     global guess_row
@@ -148,7 +151,7 @@ def user_guess():
 
 def correct_guess():
     """
-    When player makes a guess the player will get a correct message 
+    When player makes a guess the player will get a correct message
     according to whether the player has hit, missed, or over shot.
     """
     global guess_row
@@ -163,7 +166,7 @@ def correct_guess():
         print_board(board)
         print("BOOM!!! That was a Great hit!\n")
         game_active = False
-    
+
     elif guess_row not in range(5) or guess_col not in range(5):
         print("You are hitting Dry Land!! Try Again\n")
 
@@ -179,8 +182,8 @@ def correct_guess():
 
 def game():
     """
-    This function allows the player to a have a limited amount of guesses before 
-    the game ends.
+    This function allows the player to a have a limited amount of
+    guesses before the game ends.
     """
     global bship_col
     global bship_row
@@ -198,10 +201,10 @@ def game():
             break
     if guesses <= 6 and game_active:
         print("Game over, No more guesses.\n")
-        
+
     if not game_active:
         print(f"Congratulations, You guessed it in {guesses + 1} guesses\n")
-        
+
 
 def lets_go_again():
     """
@@ -212,7 +215,8 @@ def lets_go_again():
     global guesses
 
     while True:
-        replay = input("Would you like to play again commander 'Y' or 'N'\n").upper()
+        replay = input(
+            "Would you like to play again commander 'Y'/'N'\n").upper()
         clear()
         if replay == 'Y':
             game_active = True
