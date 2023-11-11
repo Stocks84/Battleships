@@ -54,3 +54,10 @@ Battleships allows the player up to six guesses per game on a grid size of 5 x 5
 -	If the player uses all their guesses without hitting the target, then the game is over. The game will also prompt the player if they would like to play again.
 
 ![screenshot](documentation/no_guesses.png)
+
+- **Exit**
+
+-	If the player inputs ‘Y’ the game will repeat however if the player input ‘N’ when prompted, then the game ends.
+
+![screenshot](documentation/end.png)
+
