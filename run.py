@@ -2,12 +2,6 @@ import os
 import sys
 from random import randint
 
-
-# Added main funtion to the end for starting the game. Need to reset board game!
-# need function to clear the board
-# Can not press 0 on the range think i need to remove -1 or add -1 tried both ?????
-# Lets start  function wont break properly! error comes up when you break! play = N
-
 global guess_row
 global guess_col
 global bship_col
@@ -33,20 +27,29 @@ print("       __|__")
 print("      \_____/\n")
 # Add a rules input here!!!
 
-# def rules():
+def rules():
 
-#     while True:
-#         rule = input("Would you like to see the Rules?")
+    while True:
+        rule = input("Would you like to see the Rules? 'Y'/'N'")
+        clear()
+        if rule == 'Y':
+            print("Rules!\n")
+            print("This is a simple game please follow these rules Commander:")
+            print("- Follow the instructions to get onto the mission board.")
+            print("- There is only one Battleship on the board.")
+            print("- You have four guesses to complete your mission.")
+            print("- Choose a number between 0 and 4 for the row and column.")
+            print("- No sleeping on duty.")
+            print("Finally enjoy the game!\n")
+            break
+        else:
+            rule == 'N'
+            print("Excellent Commander!")
+            break
+
+rules()
+
         
-print("Rules!\n")
-print("This is a simple game please follow these rules Commander:")
-print("- Follow the instructions to get onto the mission board.")
-print("- There is only one Battleship on the board.")
-print("- You have four guesses to complete your mission.")
-print("- Choose a number between 0 and 4 for the row and column.")
-print("- No sleeping on duty.")
-print("Finally enjoy the game!\n")
-
 def lets_start():
     """
     Gives the player the option to start the mission question or exit.
